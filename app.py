@@ -15,7 +15,7 @@ db = mysql.connector.connect(
 def webhook():
     data = request.get_json(force=True)
     print(data)
-    userInput = data['queryResult']['queryText']
+    userInput = data['queryResult']['queryText'] #dialogflow sends out parameters for webhook in the form of JSON
     segments = userInput.split()
     for segments in segments:
       if segments.isdigit() and len(segments) == 10:
